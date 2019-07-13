@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8"/>
+    </head>
+    <body>
+        <script>
+            // function getName()
+            // {
+            //     return ['Hong','Lee','Park'];
+            // }
+            // members = getName();
+            members = ['Hong','Lee','Park'];
+            for(var i = 0; i < members.length; i++)
+            {
+                document.write(members[i].toUpperCase());   //문자열을 대문자로 변환
+                document.write('<br />');
+            }
+
+            var li = ['a','b','c'];
+            li.push('d');
+            document.write(li);
+            document.write('<br />');
+
+            li = li.concat(['1','2']);
+            document.write(li);
+            document.write('<br />');
+
+            li.unshift('00');   //00을 첫번째 원소로 추가하고 기존 값은 한 칸씩 뒤로
+            document.write(li);
+            document.write('<br />');
+
+            //두번째 인자 뒤에 C를 넣고 싶을 때
+            // 첫번째 인자에 해당하는 원소('B')부터 두번째 인자에 해당하는 원소의 숫자만큼의 값을 배열로부터 제거한 후에 리턴
+            // 그리고 세번째 인자부터 전달된 인자들을 첫번째 인자의 원소 뒤에 추가한다.
+            var li1 = ['A','B','D'];
+            li1.splice(2,0,'C','1');
+            document.write(li1);
+            document.write('<br />');
+
+            //배열의 첫번째, 마지막 원소 제거
+            document.write('li: ' + li + '<br />');
+            li.shift();
+            li.pop();
+            document.write(li + '<br />');
+
+            //정렬 (오름차순, 내림차순)
+            var li2 = [1,5,3,2,4];
+            document.write('li2: ' + li2 + '<br />');
+            li2.sort();
+            document.write(li2 + '<br />');
+            li2.reverse();
+            document.write(li2 + '<br />');
+
+            
+        </script>
+    </body>
+</html>
