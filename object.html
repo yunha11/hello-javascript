@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8"/>
+    </head>
+    <body>
+        <script>
+            //객체 = 딕셔너리, 맵 ... 
+
+            // var grades = {'a':90, 'b':100, 'c':80};
+            
+            // var grades = {};
+            // grades['A'] = 90;
+            // grades['B'] = 100;
+            // grades['C'] = 80;
+
+            // var grades = new Object();
+            // grades['A'] = 90;
+            // grades['B'] = 100;
+            // grades['C'] = 80;
+
+            // alert(grades['A']);
+            // alert(grades.B);
+
+            // for(key in grades)
+            // {
+            //     document.write(key + " : " + grades[key] + '<br />');
+            // }
+
+            var grades = {
+                'list' : {'a':90, 'b':100, 'c':80},
+                'show' : function() {
+                    for(var name in this.list)
+                    {
+                        document.write(name + ': ' + this.list[name] + '<br />');
+                    }
+                }
+            }
+
+            grades.show();
+
+
+            </script>
+    </body>
+</html>
