@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8"/>
+    </head>
+    <body>
+        <script>
+            //정규표현식 객체 생성
+            var pattern1 = /a/;
+            var pattern2 = new RegExp('a');
+
+            //패턴 생성 시 옵션
+            var pi = /a/i;  //i를 붙이면 대소문자 구문 x
+            var pg = /a/g;  //g를 붙이면 검색된 모든 결과 반환
+
+            //정규표현식 메소드 실행
+            // console.log(pattern1.exec('abeca'));    //a를 배열로 리턴
+            // console.log(pattern1.exec('bdsef'));    //null
+
+            // console.log(pattern1.test('abeca'));    //패턴에 해당하는 문자열이 포함되면 true 
+            // console.log(pattern1.test('bdsef'));
+
+            console.log('abeca'.match(pattern1));   //RegExp.exec 와 비슷
+            console.log('Abeca'.match(pi));
+            console.log('abeca'.match(pg));
+
+            // console.log('abeca'.replace(pattern1, 'A'));   //문자열에서 패턴을 검색하고 'A'로 변경
+
+            //캡처 : 괄호 안의 패턴을 변수처럼 재사용 $ 사용.
+            var pattern3 = /(\w+)\s(\w+)/;
+            var str = "Hello Js";
+            var rst = str.replace(pattern3, "$2, $1");
+            document.write(rst+'<br />');
+
+            //치환: 본문의 url을 html태그로 변경
+            var urlPattern = /\b(?:https?):\/\/[a-z0-9-+&@#\/%?=~_|!:,.;]*/gim;
+            var content = '생활코딩 : http://opentutorials.org/course/1 입니다. 네이버 : http://naver.com 입니다. ';
+            var rst = content.replace(urlPattern, function(url){
+                return '<a href="'+url+'">'+url+'</a>';
+            });
+            document.write(rst);
+            
+        </script>
+    </body>
+</html>
