@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8"/>
+    </head>
+    <body>
+        <script>
+            //this : 함수 내에서 함수 호출 맥락을 의미. 함수 호출에 따라 this가 가리키는 대상이 달라짐.
+            // function func()
+            // {
+            //     if(window === this)
+            //         alert('window === this');
+            // }
+            // func();
+
+            //메소드의 호출
+            //객체의 소속인 메소드의 this는 그 객체를 가리킴
+            // var o = {
+            //     func1 : function() {
+            //         if(o === this)
+            //             document.write('o === this <br />');
+            //     }
+            // }
+
+            // o.func1();
+
+            //생성자의 호출
+            // var funcThis = null;
+
+            // function Func()
+            // {
+            //     funcThis = this;
+            // }
+
+            // var o1 = Func();
+            // if(funcThis === window)
+            //     document.write('funcThis === window <br/>');   
+            
+            // var o2 = new Func();
+            // if(funcThis === o2)
+            //     document.write('funcThis === o2 <br/>');   
+
+            //함수의 메소드인 apply와 call로 this 값 제어 가능
+            var o = {}
+            var p = {}
+            function func()
+            {
+                switch(this)
+                {
+                    case o:
+                        document.write('o<br/>');
+                        break;
+                    case p:
+                        document.write('p<br/>');   
+                        break;
+                    case window:
+                        document.write('w<br/>');   
+                        break;
+                }
+            }
+
+            func.apply(o);
+            func.apply(p);
+            func();
+        
+        </script>
+    </body>
+</html>

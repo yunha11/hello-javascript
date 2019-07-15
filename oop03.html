@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8"/>
+    </head>
+    <body>
+        <script>
+            //상속 : 객체의 로직을 물려받는 또 다른 객체 생성하는 기능. 
+            function Person(name)
+            {
+                this.name = name;
+                // this.introduce = function() {
+                //     return "My name is " + this.name + '.<br/>';
+                // }
+            }
+
+            Person.prototype.name = null;
+            Person.prototype.introduce = function() {
+                    return "My name is " + this.name + '.<br/>';
+                }
+
+            var p1 = new Person("Lee");
+            document.write(p1.introduce());
+            
+            function Programmer (name)
+            {
+                this.name = name;
+            }
+            //Person을 상속받음
+            Programmer.prototype = new Person();
+            Programmer.prototype.coding = function() {
+                return 'Hello World. <br/>';
+            }
+            var p1 = new Programmer("Lee");
+            document.write(p1.introduce());
+            document.write(p1.coding());
+
+            //prototype : 객체의 원형. 객체는 프로퍼티를 가지는데 prototype은 용도가 정해져 있는 특수한 프로퍼티로, prototype에 저장된 속성은 생성자를 통해 객체가 만들어 질 때 그 객체에 연결됨.
+            //객체와 객체를 연결하는 체인 역할을 함 (prototype chain)
+            function Ultra() {}
+            Ultra.prototype.ultraProp = true;
+
+            function Super() {}
+            Super.prototype = new Ultra();
+
+            function Sub() {}
+            Sub.prototype = new Super();
+
+            var o = new Sub();
+            alert(o.ultraProp); 
+            //객체 o에서 ultraProp을 찾음->없으면 Sub.prototype.ultraProp -> Super.prototype.ultraProp -> Ultra.prototype.ultraProp을 찾아감
+
+        </script>
+    </body>
+</html>
