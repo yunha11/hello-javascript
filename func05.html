@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8"/>
+    </head>
+    <body>
+        <script>
+            //생성한 함수는 Function의 인스턴스 이므로 Function의 메소드를 상속함.
+            //함수 호출 방법 함수.apply 또는 함수.call
+            // function sum(arg1, arg2)
+            // {
+            //     return arg1+arg2;
+            // }
+
+            // //apply 메소드의 첫번째 인자는 함수가 실행될 맥락, 두번째 인자는 배열로 arg1과 2에 순차적으로 대입됨
+            // alert(sum.apply(null,[1,2]));
+
+            o1 = {var1:3, var2:5, var3:10};
+            o2 = {v1:10, v2:20, v3:40, v4:100};
+
+            function sum()
+            {
+                var _sum = 0;
+                //객체 자신의 값을 열거해 _sum에 더해줌
+                //여기서는 o1 또는 o2
+                for(name in this)
+                {
+                    _sum += this[name];
+                }
+                return _sum;
+            }
+
+            document.write('o1: ' + sum.apply(o1) + '<br />');  //sum.apply(o1)은 객체 o1의 메소드로 함수 sum을 만들고 호출 한 후 sum을 삭제
+            document.write('o2: ' + sum.apply(o2) + '<br />');
+        </script>
+    </body>
+</html>
